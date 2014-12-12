@@ -1,0 +1,28 @@
+building(name):-Building(name, guid, area, numStorey, containment)
+building(name):-Building(id, name, name_codespace, building_parent_id, building_root_id, description, class, function, usage, year_of_construction, year_of_demolition, roof_type, measured_height, 
+									storeys_above_ground, storeys_below_ground, storey_heights_above_ground, storey_heights_below_ground, lod1_terrain_intersection, lod2_terrain_intersection, lod3_terrain_intersection, lod4_terrain_intersection, 
+									lod2_multi_curve, lod3_multi_curve, lod4_multi_curve, lod1_geometry_id, lod2_geometry_id, lod3_geometry_id, lod4_geometry_id)
+
+wall(name):-Wall(id, name, type, material, floor, area, height, length, thickness, material, connectedWall, space, isExternal)
+wall(name):-Thematic_Surface(id, name, name_codespace, description, 'WallSurface', building_id, room_id, lod2_multi_surface_id, lod3_multi_surface_id, lod4_multi_surface_id)
+
+InteriorWall(name):-Wall(id, name, type, material, floor, area, height, length, thickness, material, connectedWall, space, isExternal)
+InteriorWall(name):-Thematic_Surface(id, name, name_codespace, description, 'InteriorWallSurface', building_id, room_id, lod2_multi_surface_id, lod3_multi_surface_id, lod4_multi_surface_id)
+               
+roof(name):-Wall(id, name, type, material, floor, area, height, length, thickness, material, connectedWall, space, isExternal)
+roof(name):-Thematic_Surface(id, name, name_codespace, description, 'RoofSurface', building_id, room_id, lod2_multi_surface_id, lod3_multi_surface_id, lod4_multi_surface_id)       
+ 
+room(name):-Space(id, name, number, type, floor, area, height, hasWindow, boundBy(walls, doors, slab))
+room(name):-Room(id, name, name_codespace, description, class, function, usage, building_id, lod4_geometry_id)
+
+door(name):-Door(id, name, type, operation, floor, area, height, width, frame, material, space, isExternal)
+door(name):-Opening(id, name, name_codespace, description, 'Door', address_id, lod3_multi_surface_id, lod4_multi_surface_id)
+
+window(name):-Window(id, name, type, floor, area, height, width, frame, material, isExternal)
+window(name):-Opening(id, name, name_codespace, description, 'Windowr', address_id, lod3_multi_surface_id, lod4_multi_surface_id)  (LoD4_multi_surface_id),Opening_to_them_surface(id, thematic_surface_id)
+                
+furniture(name):-Furniture(id, name, material, floor, space)
+furniture(name):-Building_Furniture(id, name, name_codespace, description, class, function, usage, room_id, lod4_geometry_id, lod4_implicit_rep_id, lod4_implicit_ref_point, lod4_implicit_transformation) 
+
+stair(name):-Stair(id, name, type, floor, numberRiser, numberTread, heightRiser, heightTread, isExternal)
+stair(name):-Building_Installation(id, is_external, name, name_codespace, description, class, function, usage, building_id, room_id, lod2_geometry_id, lod3_geometry_id, lod4_geometry_id)

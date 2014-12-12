@@ -1,0 +1,31 @@
+Campus_CityGML_Data:
+
+- the campus city GML data
+
+- land explorer (license manager, use the exe, the zipped version is
+  other software)
+
+- the documentation in there: Documentation/3DCityDB_setup.rtf
+  explains how to access the database info
+
+- UBC_Campus_LoD1 contains the version of the campus now in use -
+  that's the one to put into land explorer
+
+- KML_Collada is the google earth export
+
+- /LDX_Data has the terrain data, which can go in to Oracle spatial,
+  but they don't don't normally store it in there.
+
+- Campus_GIS_Data is the 2D is the base data - done through ESRI also
+  need arcGIS and FME (Jon needs to get us information to get it set up)
+
+-  in software, install anything that starts with 3D - information in
+   the documentation setup file above.
+
+   Export_workbenches is an FME file.
+
+   Concentrate on the 3DCityDB-Importer-Exporter-1.3-Setup.jar
+  
+   Oracle: SQL Developer
+
+- virtual box from oracle

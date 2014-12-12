@@ -1,0 +1,8 @@
+IFC.Building(name, guid, area, numStorey, containment)
+IFC.Wall(id, name, type, material, floor, area, height, length, thickness, material, connectedWall, space, isExternal)
+IFC.Space(id, name, number, type, floor, area, height, hasWindow, boundBy(walls, doors, slab))
+IFC.Door(id, name, type, operation, floor, area, height, width, frame, material, space, isExternal)
+IFC.Window(id, name, type, floor, area, height, width, frame, material, isExternal)
+IFC.Furniture(id, name, material, floor, space)
+IFC.Stair(id, name, type, floor, numberRiser, numberTread, heightRiser, heightTread, isExternal)
+ 

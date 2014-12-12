@@ -1,0 +1,7 @@
+6
+concept0(ap0,ap1):-A.a0(ap0,ap1,ap2,ap3,ap4)
+concept0(ap0,ap1):-ZZ.zz0(zg0,ap0,zg2),ZZ.zz1(ap0,ap1)
+concept1(aq0,aq1):-A.a1(aq0,aq1,aq2,aq3,aq4,aq5,aq6,aq7,aq8),A.a2(ar0,aq6,ar2,ar3,ar4,aq7,ar6,ar7,aq0)
+concept1(aq0,aq1):-ZZ.zz2(zg3,aq1,aq0),ZZ.zz3(aq0,zg4)
+concept2(as0,as1):-A.a3(as0,as1,as2,as3,as4,as5,as6,as7,as8)
+concept2(as0,as1):-ZZ.zz4(as0,as1,zg6)

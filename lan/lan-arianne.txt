@@ -1,0 +1,115 @@
+* one question is how easy it is to extend CityGML to handle some of
+  the attributes that it currently doesn't handle vs. GIS attributes
+  vs. something like create an LOD5 model.  Jon has been in touch with
+  BIM Server and also wants to talk with the people at FME to see if
+  they can get in touch with them.
+
+* How much should we be looking at Galdos?  Have Arianne talk with
+  them.  
+
+* There is a handful of papers of people looking at this and figuring
+  out how to address it.  Sheryl and Jon can send some papers to help
+  us make some progress.
+
+* Want to make some progress on comparing FME to BIMServer
+
+* Also can look at the sketchup stuff would be good - want to see what
+  gets lost, what doesn't get lost, how do you handle it, etc.
+
+* Older Revit models create bigger problems for IFC exporting
+
+* On getting more data:
+  - There are some things that need to be taken care of to get things
+    working the database as far as user management is concerned.  It's
+    in Oracle.   
+
+  - Jon will be talking with people to get some more data to
+    use/transfer. 
+
+* How do we get Arianne access to ArcGIS?
+
+* Cloverpoint has a daily updated GIS data, but we have the 3D model
+  but don't have their GIS data.  It belongs to C&CP.  Jon will be
+  talking with Jeff Burton about this, so need to figure out where we
+  get the access to the data from.
+
+* There are lots of problems with roundtripping within Revit even
+
+* Define what are the different exports we want to look at, and then
+  how do we rigorously evaluate all of the transformations.  Plot
+  where the different file formats fit into the different parts of the
+  overall picture (Jon will send me the picture).
+
+* Figure out what the different file formats are and what they look
+  like and put it on the picture.  Look at what were the design
+  artifacts available during the energy charrette.  One question is
+  where to get the data.  Sheryl will get some data.  Arianne can ask
+  a friend who worked with the engineering firm for Pharmacy to find
+  out.  Jon can talk to some people about it as well.
+
+* Look into what the buzzsaw data is, Alberto may have access to some
+  of these other models
+
+* There's a dropbox folder for CIRS retrospective done by Paul and
+  Laura, but there may not be a lot of design data around that.
+
+* Look at which way the exports work and the imports work, etc.
+
+* Lan, Arianne, and I look into what Galdos does and then write up
+  some mail about where we are and what we're trying to do and send
+  them mail (after sending mail to Sheryl to check for stupidity).
+  Want to know how Galdos would fit into that stream.
+
+* Need to know what information gets lost in each of the steps -
+  perhaps with the difference between FME, BIMServer, and Galdos.
+
+**********************************************************************
+
+Cloverpoint
+
+* Need to know if it's access to the published services (which is what
+  we do).  Jeff would not be the right person, would need Campus and
+  Community planning. Lisa Colby is the client, but she's given
+  permission already, so we work with her to make sure that they agree
+  that it's going to be okay for us to have access - she'll probably
+  point us at Ellen, so that's fine.  They were waiting until they'd
+  released the last version.
+
+* Would be curious to see what facilities has (related to the meeting
+  that I had with Brent Sauder)
+
+* The data that C&CP has is cleaned
+
+* Should check to see if the C&CP people would be interested in having
+  the converted buildings into CityGML, and then try to feed it back
+  into the system (the Cloverpoint people are interested in it).
+  Thinks it would be nice to have a central repository of the data
+  (presumably in cloverpoint 
+
+* Need to know the LIDR information and see what LOD we have the data
+  in.
+
+* They bet that the problem with the Pharmacy building is a facing
+  issue with the normals, since Revit doesn't deal with normals.
+
+* They find that the sketch up stuff is a problem because it will
+  display it but not understand and then won't manage to export.  They
+  inherit the 0, 0, 0 from the other system, but they don't have the
+  actual information
+
+* They have a bunch of scripts for exporting that they may be able to
+  share with us, if Arianne or Lan run into problems, should talk to
+  them.
+
+* Would like to know when they're showing off the cloverpoint stuff in
+  the decision theatre so that they can see what's happening.
+
+* they haven't tapped into data in terms of what's related to internal
+  spaces or basements, or anything sub-surface, or having more dynamic
+  data, like where do people actually hang out, things like tweet heat
+  maps, geospatial data.  They're doing a lot through mapsocial.
+
+* They have real time data integrated with facebook.  Would like to
+  figure out how to bring this real time data into something that's
+  more interesting than "we created it, come see."
+

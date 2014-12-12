@@ -1,0 +1,146 @@
+/*************************************************************************
+
+"FreePastry" Peer-to-Peer Application Development Substrate 
+
+Copyright 2002, Rice University. All rights reserved.
+
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are
+met:
+
+- Redistributions of source code must retain the above copyright
+notice, this list of conditions and the following disclaimer.
+
+- Redistributions in binary form must reproduce the above copyright
+notice, this list of conditions and the following disclaimer in the
+documentation and/or other materials provided with the distribution.
+
+- Neither  the name  of Rice  University (RICE) nor  the names  of its
+contributors may be  used to endorse or promote  products derived from
+this software without specific prior written permission.
+
+This software is provided by RICE and the contributors on an "as is"
+basis, without any representations or warranties of any kind, express
+or implied including, but not limited to, representations or
+warranties of non-infringement, merchantability or fitness for a
+particular purpose. In no event shall RICE or contributors be liable
+for any direct, indirect, incidental, special, exemplary, or
+consequential damages (including, but not limited to, procurement of
+substitute goods or services; loss of use, data, or profits; or
+business interruption) however caused and on any theory of liability,
+whether in contract, strict liability, or tort (including negligence
+or otherwise) arising in any way out of the use of this software, even
+if advised of the possibility of such damage.
+
+********************************************************************************/
+/*
+ *  Created on Jul 7, 2005
+ */
+package rice.environment.logging.file;
+
+import java.io.*;
+import java.io.PrintStream;
+
+import rice.environment.logging.LogManager;
+import rice.environment.logging.simple.SimpleLogManager;
+import rice.environment.params.Parameters;
+import rice.environment.time.TimeSource;
+import rice.environment.time.simple.SimpleTimeSource;
+
+/**
+ * @version $Id: pretty.settings 2305 2005-03-11 20:22:33Z jeffh $
+ * @author Jeff Hoye
+ */
+public class FileLogManager extends SimpleLogManager {
+  String filePrefix;
+  String fileSuffix;
+
+  /**
+   * Constructor for FileLogManager.
+   *
+   * @param stream DESCRIBE THE PARAMETER
+   * @param timeSource DESCRIBE THE PARAMETER
+   * @param params DESCRIBE THE PARAMETER
+   */
+  public FileLogManager(PrintStream stream, TimeSource timeSource, Parameters params) {
+    this(stream, timeSource, params, "");
+  }
+
+  /**
+   * Constructor for FileLogManager.
+   *
+   * @param stream DESCRIBE THE PARAMETER
+   * @param timeSource DESCRIBE THE PARAMETER
+   * @param params DESCRIBE THE PARAMETER
+   * @param prefix DESCRIBE THE PARAMETER
+   */
+  public FileLogManager(PrintStream stream, TimeSource timeSource, Parameters params, String prefix) {
+    this(stream, timeSource, params, prefix,
+      params.getString("fileLogManager_filePrefix"),
+      params.getString("fileLogManager_fileSuffix"),
+      null);
+  }
+
+  /**
+   * Constructor for FileLogManager.
+   *
+   * @param stream DESCRIBE THE PARAMETER
+   * @param timeSource DESCRIBE THE PARAMETER
+   * @param params DESCRIBE THE PARAMETER
+   * @param prefix DESCRIBE THE PARAMETER
+   * @param filePrefix DESCRIBE THE PARAMETER
+   * @param fileSuffix DESCRIBE THE PARAMETER
+   * @param dateFormat DESCRIBE THE PARAMETER
+   */
+  public FileLogManager(PrintStream stream, TimeSource timeSource, Parameters params, String prefix, String filePrefix, String fileSuffix, String dateFormat) {
+    super(stream, timeSource, params, prefix, dateFormat);
+    this.filePrefix = filePrefix;
+    this.fileSuffix = fileSuffix;
+  }
+
+  /**
+   * Convienience constructor. Defauts to System.out as the stream, and
+   * SimpleTimeSource as the timesource.
+   *
+   * @param params DESCRIBE THE PARAMETER
+   */
+  public FileLogManager(Parameters params) {
+    this(System.out, new SimpleTimeSource(), params);
+  }
+
+  /**
+   * Convienience constructor. Defauts to SimpleTimeSource as the timesource.
+   *
+   * @param stream the stream to write to
+   * @param params DESCRIBE THE PARAMETER
+   */
+  public FileLogManager(PrintStream stream, Parameters params) {
+    this(stream, new SimpleTimeSource(), params);
+  }
+
+  /**
+   * Convienience constructor. Defauts to System.out as the stream.
+   *
+   * @param timeSource the timesource to get times from
+   * @param params DESCRIBE THE PARAMETER
+   */
+  public FileLogManager(TimeSource timeSource, Parameters params) {
+    this(System.out, timeSource, params);
+  }
+
+  /**
+   * DESCRIBE THE METHOD
+   *
+   * @param detail DESCRIBE THE PARAMETER
+   * @return DESCRIBE THE RETURN VALUE
+   */
+  public LogManager clone(String detail) {
+    try {
+      String fname = filePrefix + detail + fileSuffix;
+      PrintStream newPS = new PrintStream(new FileOutputStream(fname, true));
+      return new FileLogManager(newPS, time, params, "", filePrefix, fileSuffix, dateFormat);
+    } catch (IOException ioe) {
+      throw new RuntimeException(ioe);
+    }
+  }
+}

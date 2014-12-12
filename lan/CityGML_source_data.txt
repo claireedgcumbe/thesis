@@ -1,0 +1,6 @@
+CityGML.Building(id, name, name_codespace, building_parent_id, building_root_id, description, class, function, usage, year_of_construction, year_of_demolition, roof_type, measured_height, storeys_above_ground, storeys_below_ground, storey_heights_above_ground, storey_heights_below_ground, lod1_terrain_intersection, lod2_terrain_intersection, lod3_terrain_intersection, lod4_terrain_intersection, lod2_multi_curve, lod3_multi_curve, lod4_multi_curve, lod1_geometry_id, lod2_geometry_id, lod3_geometry_id, lod4_geometry_id)
+CityGML.Thematic_Surface(id, name, name_codespace, description, type, building_id, room_id, lod2_multi_surface_id, lod3_multi_surface_id, lod4_multi_surface_id)
+CityGML.Room(id, name, name_codespace, description, class, function, usage, building_id, lod4_geometry_id)
+CityGML.Opening(id, name, name_codespace, description, type, address_id, lod3_multi_surface_id, lod4_multi_surface_id)
+CityGML.Building_Furniture(id, name, name_codespace, description, class, function, usage, room_id, lod4_geometry_id, lod4_implicit_rep_id, lod4_implicit_ref_point, lod4_implicit_transformation) 
+CityGML.Building_Installation(id, is_external, name, name_codespace, description, class, function, usage, building_id, room_id, lod2_geometry_id, lod3_geometry_id, lod4_geometry_id)
